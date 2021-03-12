@@ -7,12 +7,12 @@ fn trace_task(context: &zmq::Context) {
         .connect("inproc://trace")
         .expect("listener thread failed connecting");
     loop {
-        let msg = receiver
-            .recv_string(0)
-            .expect("worker failed receiving")
-            .unwrap();
+        // let msg = receiver
+        //     .recv_string(0)
+        //     .expect("worker failed receiving")
+        //     .unwrap();
         let raw_msg = receiver.recv_bytes(0).expect("Failed receiving bytes");
-        println!("{:?}", raw_msg);
+        println!("Bytes: {:?}", raw_msg);
     }
 }
 
